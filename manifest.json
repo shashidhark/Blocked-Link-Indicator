@@ -1,0 +1,26 @@
+{
+	"name": "Blocked links",
+  "version": "1.0",
+  "description": "Extension to indicate blocked links by gateway.",
+  "manifest_version": 2,
+  "background": {
+  	"scripts": ["blockedlinks.js"],
+    "persistent": false
+  },
+  "permissions": ["activeTab", "declarativeContent", "storage", "https://*/", "http://*/"],
+  "page_action": {
+  	"default_icon": {
+        "16": "images/blk16.png",
+        "32": "images/blk32.png"
+      },
+    "default_title": "Blocked links",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+  {
+    "matches": ["*://*.google.com/*"],
+    "js": ["jquery.min.js", "contentScript.js"]
+  }
+ ],
+ "author": "Shashidhara"
+}
